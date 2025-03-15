@@ -40,3 +40,9 @@ news-bot/
     В .env через запятую добавьте их в RSS_FEEDS:
 
 RSS_FEEDS="старая_ссылка,https://новый-сайт/rss"  
+
+Структура таблицы processed_articles:
+Поле	Тип	Описание
+source_url	TEXT	URL RSS-ленты
+article_id	TEXT	Уникальный ID статьи
+processed_at	TIMESTAMP	Дата обработки (автоматически)
