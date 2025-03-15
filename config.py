@@ -63,7 +63,7 @@ CONFIG = {
     'deepseek': {
         'api_key': os.getenv('DEEPSEEK_API_KEY'),
         'api_url': "https://api.deepseek.com/v1/chat/completions",
-        'model': "deepseek-chat"
+        'model': "deepseek-reasoner"
     },
     'database': 'processed_articles.db',
     'check_interval': int(os.getenv('CHECK_INTERVAL', 3600)),
@@ -71,7 +71,7 @@ CONFIG = {
     'timeouts': {
         'telegram': 30,
         'http': 15,
-        'ai_api': 30
+        'ai_api': 300
     },
     'max_message_length': 4096
 }
