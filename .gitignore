@@ -1,0 +1,17 @@
+# Virtual environment
+venv/
+.env
+
+# Local databases
+*.db
+*.sqlite
+
+# IDE
+.vscode/
+.idea/
+
+# Others
+.git
+__pycache__
+app.log
+data.log
