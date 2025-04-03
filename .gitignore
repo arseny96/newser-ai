@@ -19,4 +19,4 @@ newser_ai.egg-info/
 __pycache__
 app.log
 data.log
-
+*.swp
