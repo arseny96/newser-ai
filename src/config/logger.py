@@ -1,6 +1,9 @@
 import logging
 from logging.handlers import RotatingFileHandler
 
+app_logger = logging.getLogger('app')
+data_logger = logging.getLogger('data')
+
 def setup_loggers(config):
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 

@@ -1,16 +1,26 @@
-from pydantic import Field, AnyUrl
 from pydantic_settings import BaseSettings
+from pydantic import Field
 
 class Settings(BaseSettings):
-    
-    # Обязательные настройки
-    DEEPSEEK_API_KEY: str
-    TELEGRAM_BOT_TOKEN: str
-    TELEGRAM_CHANNEL_ID: str
-    SOURCES_PATH: str = "data/sources.yml"
+    # AI Configuration
+    WORKING_MODEL_AI_PROVIDER: str = Field(..., env="WORKING_MODEL_AI_PROVIDER")
+    WORKING_MODEL_AI_NAME: str = Field(..., env="WORKING_MODEL_AI_NAME")
+    AI_API_TIMEOUT: int = Field(..., env="AI_API_TIMEOUT")
+    AI_MAX_TEXT_LENGTH: int = 5000
+
+    # API Keys
+    DEEPSEEK_API_KEY: str = Field(..., env="DEEPSEEK_API_KEY")
+    OPENAI_API_KEY: str = Field(..., env="OPENAI_API_KEY")
+
+    # Telegram
+    TELEGRAM_BOT_TOKEN: str = Field(..., env="TELEGRAM_BOT_TOKEN")
+    TELEGRAM_CHANNEL_ID: str = Field(..., env="TELEGRAM_CHANNEL_ID")
+
+    # Data Configuration
+    ARTICLES_DIR: str = "data/new_articles"
     DATABASE_URL: str = "sqlite:///processed.db"
 
-    # Логирование
+    # Logging
     APP_LOG_LEVEL: str = "INFO"
     DATA_LOG_LEVEL: str = "DEBUG"
     APP_LOG_FILE: str = "app.log"
@@ -18,16 +28,9 @@ class Settings(BaseSettings):
     LOG_MAX_SIZE: int = 1048576  # 1MB
     LOG_BACKUP_COUNT: int = 3
 
-    # Таймауты (добавьте эти поля)
-    CHECK_INTERVAL: int = Field(3600, alias="CHECK_INTERVAL")
-    HTTP_TIMEOUT: int = Field(15, alias="HTTP_TIMEOUT")
-    TELEGRAM_TIMEOUT: int = Field(30, alias="TELEGRAM_TIMEOUT")
-    AI_API_TIMEOUT: int = Field(30, alias="AI_API_TIMEOUT")
-    MAX_MESSAGE_LENGTH: int = Field(4096, alias="MAX_MESSAGE_LENGTH")
-
     class Config:
         env_file = ".env"
-        extra = "ignore"  # Игнорировать лишние переменные
+        env_file_encoding = 'utf-8'
 
-def get_settings() -> Settings:
+def get_settings():
     return Settings()

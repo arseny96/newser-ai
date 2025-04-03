@@ -12,7 +12,7 @@ class TelegramPoster:
 
     async def send_message(self, text: str, url: str) -> bool:  # Добавили async
         try:
-            message = f"{text}\n\n🔗 {url}"
+            message = f"{text}\n\n {url}"
             await self.bot.send_message(  # Добавили await
                 chat_id=self.channel_id,
                 text=message,

@@ -1,8 +1,8 @@
-feedparser==6.0.10
 requests==2.31.0
 python-telegram-bot==20.5
 python-dotenv==1.0.0
 SQLAlchemy==2.0.25
-PyYAML==6.0.1
 pydantic-settings==2.8.1
 pydantic==2.7.1
+openai==1.6.1
+beautifulsoup4==4.12.3

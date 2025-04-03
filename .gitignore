@@ -6,6 +6,9 @@ venv/
 *.db
 *.sqlite
 
+# Local files 
+data/
+
 # IDE
 .vscode/
 .idea/
@@ -15,3 +18,4 @@ venv/
 __pycache__
 app.log
 data.log
+
