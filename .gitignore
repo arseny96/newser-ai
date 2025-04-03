@@ -8,7 +8,7 @@ venv/
 
 # Local files 
 data/
-newser_ai.egg-info
+newser_ai.egg-info/
 
 # IDE
 .vscode/
